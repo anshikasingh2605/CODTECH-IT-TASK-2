@@ -1,0 +1,30 @@
+names=[]; score={}
+def averages(marks_list):
+        avrg=sum(marks_list)/len(marks_list)
+        print(f'{name}"s Average={avrg}')
+        return avrg
+def grades(avg):
+        grade=''
+        if avg>=90 and avg<=100:
+            grade='A'
+        elif avg>=80 and avg<90:
+            grade='B'
+        elif avg>=70 and avg<80:
+            grade='C'
+        elif avg>=60 and avg <70 :
+            grade='D'
+        else:
+            grade='Fail'
+        return grade
+while True:
+        name=input("Enter your name :").title().strip()
+        if name=="Done":
+            break
+        else:
+            names.append(name)
+            marks=list(map(int,input("enter marks:").split()))
+            score[name]=marks
+            for name,marks in score.items() :
+                avg_marks= averages(marks)
+                grade=grades(avg_marks)
+                print(f'{name}-{grade}')
